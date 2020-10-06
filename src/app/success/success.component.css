@@ -1,0 +1,17 @@
+img{
+    width:130px;
+    height:130px;
+}
+span{
+    font-weight: 900;
+}
+.background{
+    background-color: #fff;
+    height: 220px;
+    margin-top: 9px;
+    
+
+}
+.background h5{
+    text-align: center;
+}

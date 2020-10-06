@@ -1,0 +1,73 @@
+
+   
+   
+      
+            <div class="col-md-2 col-sm-6 col-xs-12 margin " >
+               <div class="filter"> 
+                  <h3 >Filters</h3>
+               <h5>Launch Year</h5>
+                <div class="col-md-6 col-sm-6 col-xs-6  col-xs-off-set-3 background" *ngFor="let spac of spacex|duplicate">
+                 
+                   <div  [(ngModel)]="filteredLocation" name="locationFilter" id="locationFilter">
+                   
+                       <button  (click)="filteredLocation = spac.launch_year" class="btn btn-primary">
+                         <h5> {{spac.launch_year}} </h5>
+
+                       </button>
+                    </div>
+               
+                 </div>
+                 <h5>Successful Launch</h5>
+                 <div class="col-md-6 col-sm-6 col-xs-6 background" *ngFor="let succe of success|sucess">
+                  <div  [(ngModel)]="filteredLocation" name="locationFilter" id="locationFilter">
+                
+                    <button  (click)="filteredLocation =succe.launch_success" class="btn btn-primary"><p> {{succe.launch_success}}</p></button>
+                 </div>
+                 </div>
+                 <h5>Successful Landing</h5>
+              <div class="col-md-6 col-sm-6 col-xs-6 background" *ngFor="let lan of land |land">
+                <div  [(ngModel)]="filteredLocation" name="locationFilter" id="locationFilter">
+                 <button (click)="filteredLocation=lan.launch_success" class="btn btn-primary">{{lan.launch_success}}</button>
+               </div>
+            </div>
+            </div>
+            </div>
+            
+            <div class="col-md-10 col-sm-10 col-xs-10 ">
+                    <app-launch *ngFor="let spac of spacex | filter:filteredLocation:'launch_year'"
+                    
+                    mission_img={{spac.links.mission_patch}}
+                    mission_name={{spac.mission_name}}
+                    mission_id={{spac.mission_id}}
+                    launch_year={{spac.launch_year}}
+                    launch_success={{spac.launch_success}}
+                    land_success={{spac.land_success}}
+                    
+                    
+                    
+                   >
+                        
+                    </app-launch>
+                   <app-success *ngFor="let succe of success | filter:filteredLocation:'launch_success'"
+                     
+                   mission_img={{succe.links.mission_patch}}
+                   mission_name={{succe.mission_name}}
+                   mission_id={{succe.mission_id}}
+                   launch_year={{succe.launch_year}}
+                   launch_success={{succe.launch_success}}
+                   land_success={{succe.land_success}}>
+                   </app-success>
+                    <app-land *ngFor="let lan of land | filter:filteredLocation:'launch_success'"
+                    mission_img={{lan.links.mission_patch}}
+                    mission_name={{lan.mission_name}}
+                    mission_id={{lan.mission_id}}
+                    launch_year={{lan.launch_year}}
+                    launch_success={{lan.launch_success}}
+                    land_success={{lan.land_success}}
+                    >
+
+                  </app-land>
+              </div>
+      
+      
+      

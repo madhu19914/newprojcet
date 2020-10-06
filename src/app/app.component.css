@@ -1,0 +1,12 @@
+
+
+
+.row{
+    background-color: lightgrey;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+.row h2{
+    padding-left: 15px;
+    font-weight: 800;
+}
